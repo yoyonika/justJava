@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         quantityTextView.setText("" + number);
     }
 
+
     // This method displays the price on the screen
 
     public void displayPrice (int number) {
