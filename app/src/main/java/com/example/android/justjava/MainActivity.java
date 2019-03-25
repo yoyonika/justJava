@@ -24,10 +24,8 @@ public class MainActivity extends AppCompatActivity {
     // This method is called when the order button is clicked
 
     public void submitOrder (View view) {
-        int price = quantity * 5;
-        String totalPrice = "Total: $" + price;
-        totalPrice = totalPrice + "\nThank you!";
-        displayMessage(totalPrice);
+        int price = calculatePrice();
+        displayMessage(createOrderSummary(price));
     }
 
     // This method displays the given quantity value on the screen
@@ -37,11 +35,16 @@ public class MainActivity extends AppCompatActivity {
         quantityTextView.setText("" + number);
     }
 
-    // This method displays the price on the screen
+    private int calculatePrice(){
+         return quantity * 5;
+    }
 
-    public void displayPrice (int number) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+    private String createOrderSummary(int price){
+        String priceOfOrder = "Name: Ioana B ";
+        priceOfOrder += "\nQuantity: " + quantity;
+        priceOfOrder += "\nTotal: $" + price;
+        priceOfOrder += "\nThank you!";
+        return priceOfOrder;
     }
 
     /**
