@@ -10,6 +10,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.NumberFormat;
+
 // This app displays an order form to order coffee
 
 public class MainActivity extends AppCompatActivity {
@@ -59,30 +61,34 @@ public class MainActivity extends AppCompatActivity {
         return basePrice * quantity;
     }
 
-    private String createOrderSummary(int price, boolean withWhippedCream, boolean hasChocolate, String enterName){
-        priceOfOrder = "Name: " + enterName;
-        priceOfOrder += "\nAdd whipped cream? " + withWhippedCream;
-        priceOfOrder += "\nAdd chocolate? " + hasChocolate;
-        priceOfOrder += "\nQuantity: " + quantity;
-        priceOfOrder += "\nTotal: $" + price;
-        priceOfOrder += "\nThank you!";
+    private String createOrderSummary(int price, boolean withWhippedCream, boolean hasChocolate, String enteredName){
+        priceOfOrder = "\n" + getString(R.string.customer_name,enteredName);
+        priceOfOrder += "\n" + getString(R.string.with_whippded_cream,withWhippedCream);
+        priceOfOrder += "\n" + getString(R.string.with_chocolate,hasChocolate);
+        priceOfOrder += "\n" + getString(R.string.quantity_ordered) + quantity;
+        priceOfOrder += "\n" + getString(R.string.total_price) + NumberFormat.getCurrencyInstance().format(price);
+        priceOfOrder += "\n" + getString(R.string.thank_you);
 
         return priceOfOrder;
     }
 
-    private void sendOrderEmail(int price, boolean withWhippedCream, boolean hasChocolate, String enterName) {
-        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "", null));
-        intent.putExtra(Intent.EXTRA_TEXT, createOrderSummary(price, withWhippedCream, hasChocolate, enterName));
-        startActivity(Intent.createChooser(intent, null));
-    }
+    private void sendOrderEmail(int price, boolean withWhippedCream, boolean hasChocolate, String enteredName) {
+            Intent intent = new Intent(Intent.ACTION_SENDTO);
+            intent.setData(Uri.parse("mailto:"));
+            intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.customer_name_email_subject,enteredName));
+            intent.putExtra(Intent.EXTRA_TEXT, createOrderSummary(price, withWhippedCream, hasChocolate, enteredName));
+        if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
+        }
 
     /**
      * This method displays the given text on the screen.
      */
-    private void displayMessage(String message) {
-        TextView orderSummaryTextView = findViewById(R.id.order_summary_text_view);
-        orderSummaryTextView.setText(message);
-    }
+//    private void displayMessage(String message) {
+//        TextView orderSummaryTextView = findViewById(R.id.order_summary_text_view);
+//        orderSummaryTextView.setText(message);
+//    }
 
     // Increments the price
 

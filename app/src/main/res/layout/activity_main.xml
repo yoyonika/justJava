@@ -16,23 +16,22 @@
         android:id="@+id/enter_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Name"
+        android:hint="@string/name"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:inputType="textCapWords"/>
+
    <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="Toppings"
-       android:textAllCaps="true"
+       android:text="@string/toppings"
        android:paddingLeft="16dp"
-       android:paddingTop="16dp" />
+       android:paddingTop="16dp"
+       style="@style/HeaderTextStyle"/>
 
     <CheckBox
         android:id="@+id/whipped_cream"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Whipped Cream"
+        android:text="@string/whipped_cream"
         android:textSize="16sp"
         android:paddingLeft="24dp"
         android:layout_marginTop="16dp"
@@ -42,21 +41,20 @@
         android:id="@+id/chocolate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Chocolate"
+        android:text="@string/chocolate"
         android:textSize="16sp"
         android:paddingLeft="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="8dp"/>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:padding="16dp"
-        android:text="QUANTITY"
+        android:text="@string/quantity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/HeaderTextStyle"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -69,7 +67,7 @@
             android:layout_height="48dp"
             android:layout_marginLeft="8dp"
             android:onClick="decrement"
-            android:text="-" />
+            android:text="@string/minus" />
 
         <TextView
             android:id="@+id/quantity_text_view"
@@ -86,38 +84,39 @@
             android:layout_height="48dp"
             android:layout_marginLeft="16dp"
             android:onClick="increment"
-            android:text="+" />
+            android:text="@string/plus" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="ORDER SUMMARY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="16dp"-->
+        <!--android:layout_marginBottom="16dp"-->
+        <!--android:text="@string/summary"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent"-->
+        <!--android:textAllCaps="true"/>-->
 
-    <TextView
-        android:id="@+id/order_summary_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="$0"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+    <!--<TextView-->
+        <!--android:id="@+id/order_summary_text_view"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="16dp"-->
+        <!--android:layout_marginBottom="16dp"-->
+        <!--android:text="@string/total_cost"-->
+        <!--android:textColor="@color/black"-->
+        <!--android:textSize="16sp"-->
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintRight_toRightOf="parent" />-->
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="8dp"
         android:onClick="submitOrder"
-        android:text="ORDER" />
+        android:text="@string/order_button" />
 
 </android.support.v7.widget.LinearLayoutCompat>
 </ScrollView>

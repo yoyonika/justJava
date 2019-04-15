@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff = "urn:oasis:names:tc:xliff:document:1:2">
+    <string name="toppings">Coberturas</string>
+    <string name="name">Nombre</string>
+    <string name="whipped_cream">Crema batida</string>
+    <string name="chocolate">Chocolate</string>
+    <string name="total_cost">0</string>
+    <string name="summary">Resumen del pedido</string>
+    <string name="order_button">Orden</string>
+    <string name="quantity">Cantidad</string>
+    <string name="with_whippded_cream">Añadir crema batida?<xliff:g id="cream" example="true">%b</xliff:g></string>
+    <string name="with_chocolate">Añadir chocolate?<xliff:g id="chocolate" example="true">%b</xliff:g></string>
+    <string name="quantity_ordered">Cantidad:</string>
+    <string name="total_price">Total:</string>
+    <string name="thank_you">¡Gracias!</string>
+    <string name="customer_name">Nombre:<xliff:g id="name" example="Amy">%s</xliff:g></string>
+    <string name="customer_name_email_subject">Orden para <xliff:g id="name" example="Amy">%s</xliff:g></string>
+</resources>
